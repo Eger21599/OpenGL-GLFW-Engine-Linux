@@ -1,6 +1,0 @@
-﻿  main.cpp
-D:\Egerous\EgerVS\GLFWOpenGL\GLFWOpenGL\main.cpp(143,9): warning C4129: '%': unrecognized character escape sequence
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'D:\Egerous\EgerVS\GLFWOpenGL\Debug\vc120.pdb'; linking object as if no debug info
-  GLFWOpenGL.vcxproj -> D:\Egerous\EgerVS\GLFWOpenGL\Debug\GLFWOpenGL.exe
