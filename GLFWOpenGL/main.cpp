@@ -2,9 +2,15 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <sstream>
 #include <fstream>
+
+float windowWidth = 1280;
+float windowHeight = 720;
 
 struct ShaderProgramSource
 {
@@ -115,7 +121,7 @@ int main()
     glfwWindowHint(GLFW_DEPTH_BITS, 24);
     glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_API);
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "GLFW Test", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "GLFW Test", NULL, NULL);
 
     if (!window)
     {
@@ -143,9 +149,9 @@ int main()
     float positions[]
             {
                     -0.5f, -0.5f, //0
-                    0.5f, -0.5f, //1
-                    0.5f,  0.5f, //2
-                    -0.5f, 0.5f  //3
+                     0.5f, -0.5f, //1
+                     0.5f,  0.5f, //2
+                    -0.5f,  0.5f  //3
             };
 
     unsigned int indices[]
@@ -154,24 +160,44 @@ int main()
                     2, 3, 0
             };
 
-    unsigned int vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    float colors[]
+            {
+                    1.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f,
+                    0.0f, 0.0f, 1.0f
+            };
 
-    unsigned int buffer;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    unsigned int vao;
+
+    unsigned int vbo[2];
+    glGenBuffers(2, vbo);
+
+    unsigned  int positionBuffer = vbo[0];
+    glBindBuffer(GL_ARRAY_BUFFER, positionBuffer);
     glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), positions, GL_STATIC_DRAW);
 
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+    unsigned int colorBuffer = vbo[1];
+    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+    glBufferData(GL_ARRAY_BUFFER, 3 * 3 * sizeof(float), colors, GL_STATIC_DRAW);
 
     unsigned int ibo;
     glGenBuffers(1, &ibo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2 * 3 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
-    ShaderProgramSource source = loadShaderFromFile("/windows/Egerous/EgerCLion/GLFWOpenGL/basic.shader");
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+
+    glBindBuffer(GL_ARRAY_BUFFER, positionBuffer);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    ShaderProgramSource source = loadShaderFromFile("../basic.shader");
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
 

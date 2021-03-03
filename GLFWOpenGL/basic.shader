@@ -1,8 +1,8 @@
   #shader vertex
   #version 460
 
-  in vec3 VertexPosition;
-  in vec3 VertexColor;
+  layout(location=0) in vec3 VertexPosition;
+  layout(location=1) in vec3 VertexColor;
 
   uniform vec3 u_Color;
 
@@ -10,7 +10,7 @@
 
   void main()
   {
-  	Color = /*VertexColor*/ /*vec3(0.0f, 0.0f, 0.7f)*/ u_Color;
+  	Color = VertexColor /*vec3(0.0f, 0.0f, 0.7f)*/ /*u_Color*/;
   	gl_Position = vec4(VertexPosition, 1.0f);
   }
 
@@ -20,7 +20,6 @@
   in vec3 Color;
 
   out vec4 FragColor;
-
 
   void main()
   {
