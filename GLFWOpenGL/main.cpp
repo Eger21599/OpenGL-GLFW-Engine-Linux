@@ -2,12 +2,15 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 #include <sstream>
 #include <fstream>
+
+#include "stb_image.h"
 
 float windowWidth = 1280;
 float windowHeight = 720;
@@ -133,6 +136,7 @@ int main()
 
     glfwSwapInterval(1); //vsync
     glfwSetKeyCallback(window, key);
+    glEnable(GL_DEPTH_TEST);
 
     if (glewInit() != GLEW_OK)
     {
@@ -146,63 +150,149 @@ int main()
     glewExperimental = GL_TRUE;
     glGetError();
 
-    float positions[]
-            {
-                    -0.5f, -0.5f, //0
-                     0.5f, -0.5f, //1
-                     0.5f,  0.5f, //2
-                    -0.5f,  0.5f  //3
-            };
+    float vertices[] = {
+            //     Coord           tex coord
+            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+            0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 
-    unsigned int indices[]
-            {
-                    0, 1, 2,
-                    2, 3, 0
-            };
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
 
-    float colors[]
-            {
-                    1.0f, 0.0f, 0.0f,
-                    0.0f, 1.0f, 0.0f,
-                    0.0f, 0.0f, 1.0f
-            };
+            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 
-    unsigned int vao;
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 
-    unsigned int vbo[2];
-    glGenBuffers(2, vbo);
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
 
-    unsigned  int positionBuffer = vbo[0];
-    glBindBuffer(GL_ARRAY_BUFFER, positionBuffer);
-    glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), positions, GL_STATIC_DRAW);
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
 
-    unsigned int colorBuffer = vbo[1];
+    float colorData[] = {
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+
+            1.0f, 1.0f, 1.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 1.0f,
+    };
+
+    unsigned int indices[] = {
+            0, 1, 2,
+            3, 4, 5,
+            6, 7, 8,
+            9, 10, 11,
+            12, 13, 14,
+            15, 16, 17,
+            18, 19, 20,
+            21, 22, 23,
+            24, 25, 26,
+            27, 28, 29,
+            30, 31, 32,
+            33, 34, 35
+    };
+
+    unsigned int vaoHandle;
+
+    unsigned int vboHandles[2];
+    glGenBuffers(2, vboHandles);
+    unsigned int vertexBuffer = vboHandles[0];
+    unsigned int colorBuffer = vboHandles[1];
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    glBufferData(GL_ARRAY_BUFFER, 3 * 3 * sizeof(float), colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colorData), colorData, GL_STATIC_DRAW);
 
     unsigned int ibo;
     glGenBuffers(1, &ibo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2 * 3 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 12 * 3 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    glGenVertexArrays(1, &vaoHandle);
+    glBindVertexArray(vaoHandle);
 
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
 
-    glBindBuffer(GL_ARRAY_BUFFER, positionBuffer);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), NULL);
 
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
 
     ShaderProgramSource source = loadShaderFromFile("../basic.shader");
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
-
-    int location = glGetUniformLocation(shader, "u_Color");
-    glUniform3f(location, 0.2f, 0.3f, 0.7f);
 
     glBindVertexArray(0);
     glUseProgram(0);
@@ -211,14 +301,30 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glUseProgram(shader);
 
-        glBindVertexArray(vao);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+        glm::mat4 model = glm::mat4(1.0f);
+        glm::mat4 view = glm::mat4(1.0f);
+        glm::mat4 projection = glm::mat4(1.0f);
+        model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        projection = glm::perspective(glm::radians(45.0f), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
 
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        unsigned int modelLoc = glGetUniformLocation(shader, "model");
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        unsigned int viewLoc = glGetUniformLocation(shader, "view");
+        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+
+        unsigned int projLocation = glGetUniformLocation(shader, "projection");
+        glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
+
+        glBindVertexArray(vaoHandle);
+        //glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
