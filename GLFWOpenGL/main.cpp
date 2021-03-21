@@ -15,6 +15,8 @@
 float windowWidth = 1280;
 float windowHeight = 720;
 
+glm::vec3 lightSourcePos(1.2f, 1.0f, 1.0f);
+
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -35,6 +37,9 @@ void processInput(GLFWwindow* window)
         glfwSetWindowShouldClose(window, true);
 
     float cameraSpeed = 2.5f * deltaTime;
+
+    if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+        cameraSpeed *= 2.0f;
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         cameraPos += cameraSpeed * cameraFront;
@@ -59,18 +64,17 @@ void mouse_callback(GLFWwindow * window, double xpos, double ypos)
     }
 
     float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; // перевернуто, так как y-координаты идут снизу вверх
+    float yoffset = lastY - ypos;
     lastX = xpos;
     lastY = ypos;
 
-    float sensitivity = 0.1f; // измените это значение по своему усмотрению
+    float sensitivity = 0.07f;
     xoffset *= sensitivity;
     yoffset *= sensitivity;
 
     yaw += xoffset;
     pitch += yoffset;
 
-    // Убеждаемся, что когда значение тангаж выходит за пределы, экран не переворачивается
     if (pitch > 89.0f)
         pitch = 89.0f;
     if (pitch < -89.0f)
@@ -210,83 +214,58 @@ int main()
     glGetError();
 
     float vertices[] = {
-            //     Coord           tex coord
-            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,  // 0
-             0.5f, -0.5f, -0.5f,  1.0f, 0.0f,  // 1
-             0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  // 2
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,  // 3
+            //     Coords            Tex coords         Normal cords
+            -0.5f, -0.5f, -0.5f,     0.0f, 0.0f,     0.0f,  0.0f, -1.0f,
+             0.5f, -0.5f, -0.5f,     1.0f, 0.0f,     0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,     1.0f, 1.0f,     0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,     1.0f, 1.0f,     0.0f,  0.0f, -1.0f,
+            -0.5f,  0.5f, -0.5f,     0.0f, 1.0f,     0.0f,  0.0f, -1.0f,
+            -0.5f, -0.5f, -0.5f,     0.0f, 0.0f,     0.0f,  0.0f, -1.0f,
 
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  // 4
-             0.5f, -0.5f,  0.5f,  1.0f, 0.0f,  // 5
-             0.5f,  0.5f,  0.5f,  1.0f, 1.0f,  // 6
-            -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,  // 7
+            -0.5f, -0.5f,  0.5f,     0.0f, 0.0f,     0.0f,  0.0f, 1.0f,
+             0.5f, -0.5f,  0.5f,     1.0f, 0.0f,     0.0f,  0.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,     1.0f, 1.0f,     0.0f,  0.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,     1.0f, 1.0f,     0.0f,  0.0f, 1.0f,
+            -0.5f,  0.5f,  0.5f,     0.0f, 1.0f,     0.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,     0.0f, 0.0f,     0.0f,  0.0f, 1.0f,
 
-            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  // 8
-            -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  // 9
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  // 10
-             0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  // 11
+            -0.5f,  0.5f,  0.5f,     1.0f, 0.0f,    -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f,     1.0f, 1.0f,    -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,     0.0f, 1.0f,    -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,     0.0f, 1.0f,    -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f,     0.0f, 0.0f,    -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f,     1.0f, 0.0f,    -1.0f,  0.0f,  0.0f,
 
-             0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  // 12
-             0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  // 13
-             0.5f, -0.5f, -0.5f,  1.0f, 1.0f,  // 14
-            -0.5f,  0.5f,  0.5f,  0.0f, 0.0f   // 15
+             0.5f,  0.5f,  0.5f,     1.0f, 0.0f,     1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,     1.0f, 1.0f,     1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,     0.0f, 1.0f,     1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,     0.0f, 1.0f,     1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,     0.0f, 0.0f,     1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,     1.0f, 0.0f,     1.0f,  0.0f,  0.0f,
 
-    };
+            -0.5f, -0.5f, -0.5f,     0.0f, 1.0f,     0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,     1.0f, 1.0f,     0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,     1.0f, 0.0f,     0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,     1.0f, 0.0f,     0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f,     0.0f, 0.0f,     0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,     0.0f, 1.0f,     0.0f, -1.0f,  0.0f,
 
-    unsigned int indices[] = {
-            0, 1, 2,  // 1
-            2, 3, 0,
-            4, 5, 6,  // 2
-            6, 7, 4,
-            8, 9, 10, // 3
-            10, 4, 8,
-            11, 2, 12,// 4
-            12, 13, 11,
-            10, 14, 5, // 5
-            5, 4, 10,
-            3, 2, 11, // 6
-            11, 15, 3
-    };
-
-    float colorData[] = {
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 1.0f,
-
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 0.0f,
-
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 1.0f,
-
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 1.0f
+            -0.5f,  0.5f, -0.5f,     0.0f, 1.0f,     0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,     1.0f, 1.0f,     0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,     1.0f, 0.0f,     0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,     1.0f, 0.0f,     0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f,     0.0f, 0.0f,     0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f,     0.0f, 1.0f,     0.0f,  1.0f,  0.0f,
     };
 
     unsigned int vaoHandle;
 
-    unsigned int vboHandles[2];
-    glGenBuffers(2, vboHandles);
+    unsigned int vboHandles[1];
+    glGenBuffers(1, vboHandles);
     unsigned int vertexBuffer = vboHandles[0];
-    unsigned int colorBuffer = vboHandles[1];
 
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(colorData), colorData, GL_STATIC_DRAW);
-
-    unsigned int ibo;
-    glGenBuffers(1, &ibo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     glGenVertexArrays(1, &vaoHandle);
     glBindVertexArray(vaoHandle);
@@ -296,20 +275,24 @@ int main()
     glEnableVertexAttribArray(2);
 
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), NULL);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), NULL);
 
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 
-    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(5 * sizeof(float)));
 
     ShaderProgramSource source = loadShaderFromFile("../basic.shader");
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
 
-    glm::mat4 projection = glm::perspective(glm::radians(fov), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
-    unsigned int projLocation = glGetUniformLocation(shader, "projection");
-    glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
+    unsigned int lightPosLoc = glGetUniformLocation(shader, "lightPos");
+    glUniform3f(lightPosLoc, lightSourcePos.x, lightSourcePos.y, lightSourcePos.z);
+
+    unsigned int objectColorLoc = glGetUniformLocation(shader, "objectColor");
+    glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
+
+    unsigned int lightColorLoc = glGetUniformLocation(shader, "lightColor");
+    glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f);
 
     unsigned int texture;
     glGenTextures(1, &texture);
@@ -334,6 +317,23 @@ int main()
     }
     stbi_image_free(data);
 
+    unsigned int lightVAO;
+    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(lightVAO);
+
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), NULL);
+
+    ShaderProgramSource lightSource = loadShaderFromFile("../lightSource.shader");
+    unsigned int lightShader = CreateShader(lightSource.VertexSource, lightSource.FragmentSource);
+    glUseProgram(lightShader);
+
+
+
+    glm::mat4 projection = glm::perspective(glm::radians(fov), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
+
     glBindVertexArray(0);
     glUseProgram(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -349,10 +349,30 @@ int main()
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        glUseProgram(lightShader);
+
+        glm::mat4 lightModel = glm::mat4(1.0f);
+        lightModel = glm::translate(lightModel, lightSourcePos);
+        lightModel = glm::scale(lightModel, glm::vec3(0.2f));
+
+        glm::mat4 lightView = glm::mat4(1.0f);
+        lightView = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+
+        unsigned int lightModelLoc = glGetUniformLocation(lightShader, "model");
+        glUniformMatrix4fv(lightModelLoc, 1, GL_FALSE, glm::value_ptr(lightModel));
+
+        unsigned int lightProjLocation = glGetUniformLocation(lightShader, "projection");
+        glUniformMatrix4fv(lightProjLocation, 1, GL_FALSE, glm::value_ptr(projection));
+
+        unsigned int lightViewLoc = glGetUniformLocation(lightShader, "view");
+        glUniformMatrix4fv(lightViewLoc, 1, GL_FALSE, glm::value_ptr(lightView));
+
+        glBindVertexArray(lightVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
         glUseProgram(shader);
 
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
         glm::mat4 view = glm::mat4(1.0f);
         view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
@@ -360,13 +380,15 @@ int main()
         unsigned int modelLoc = glGetUniformLocation(shader, "model");
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
+        unsigned int projLocation = glGetUniformLocation(shader, "projection");
+        glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
+
         unsigned int viewLoc = glGetUniformLocation(shader, "view");
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(vaoHandle);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
