@@ -15,7 +15,7 @@
 float windowWidth = 1280;
 float windowHeight = 720;
 
-glm::vec3 lightSourcePos(1.2f, 1.0f, 1.0f);
+glm::vec3 lightSourcePos(1.2f, 1.0f, 2.0f);
 
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -171,6 +171,30 @@ static ShaderProgramSource loadShaderFromFile(const std::string& filePath)
     return { ss[0].str(), ss[1].str() };
 }
 
+void setMaterial(unsigned int shaderProgram, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, float shininess)
+{
+    unsigned int ambientLoc = glGetUniformLocation(shaderProgram, "material.ambient");
+    unsigned int diffuseLoc = glGetUniformLocation(shaderProgram, "material.diffuse");
+    unsigned int specularLoc = glGetUniformLocation(shaderProgram, "material.specular");
+    unsigned int shininessLoc = glGetUniformLocation(shaderProgram, "material.shininess");
+
+    glUniform3f(ambientLoc, ambient.x, ambient.y, ambient.z);
+    glUniform3f(diffuseLoc, diffuse.x, diffuse.y, diffuse.z);
+    glUniform3f(specularLoc, specular.x, specular.y, specular.z);
+    glUniform1f(shininessLoc, shininess);
+}
+
+void setLightIntensity(unsigned int shaderProgram, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)
+{
+    unsigned int ambientLoc = glGetUniformLocation(shaderProgram, "light.ambient");
+    unsigned int diffuseLoc = glGetUniformLocation(shaderProgram, "light.diffuse");
+    unsigned int specularLoc = glGetUniformLocation(shaderProgram, "light.specular");
+
+    glUniform3f(ambientLoc, ambient.x, ambient.y, ambient.z);
+    glUniform3f(diffuseLoc, diffuse.x, diffuse.y, diffuse.z);
+    glUniform3f(specularLoc, specular.x, specular.y, specular.z);
+}
+
 int main()
 {
     glfwSetErrorCallback(error);
@@ -285,14 +309,17 @@ int main()
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
 
-    unsigned int lightPosLoc = glGetUniformLocation(shader, "lightPos");
-    glUniform3f(lightPosLoc, lightSourcePos.x, lightSourcePos.y, lightSourcePos.z);
-
     unsigned int objectColorLoc = glGetUniformLocation(shader, "objectColor");
-    glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
+    glUniform3f(objectColorLoc, 1.0f, 1.0f, 1.0f);
 
     unsigned int lightColorLoc = glGetUniformLocation(shader, "lightColor");
     glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f);
+
+    setMaterial(shader, glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(1.0f, 1.0f, 1.0f),
+                glm::vec3(0.5f, 0.5f, 0.5f), 32.0f);
+
+    setLightIntensity(shader, glm::vec3(0.2f, 0.2f, 0.2f), glm::vec3(0.5f, 0.5f, 0.5f),
+                      glm::vec3(0.5f, 0.5f, 0.5f));
 
     unsigned int texture;
     glGenTextures(1, &texture);
@@ -349,6 +376,9 @@ int main()
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        /*lightSourcePos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
+        lightSourcePos.y = sin(glfwGetTime() / 2.0f) * 1.0f;*/
+
         glUseProgram(lightShader);
 
         glm::mat4 lightModel = glm::mat4(1.0f);
@@ -385,6 +415,12 @@ int main()
 
         unsigned int viewLoc = glGetUniformLocation(shader, "view");
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+
+        unsigned int viewPosLoc = glGetUniformLocation(shader, "viewPos");
+        glUniform3f(viewPosLoc, cameraPos.x, cameraPos.y, cameraPos.z);
+
+        unsigned int lightPosLoc = glGetUniformLocation(shader, "lightPos");
+        glUniform3f(lightPosLoc, lightSourcePos.x, lightSourcePos.y, lightSourcePos.z);
 
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(vaoHandle);
