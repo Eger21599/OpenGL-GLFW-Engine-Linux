@@ -11,11 +11,13 @@
 #include <fstream>
 
 #include "stb_image.h"
+#include "InteractionWithShader.h"
+#include "Texture.h"
 
 float windowWidth = 1280;
 float windowHeight = 720;
 
-glm::vec3 lightSourcePos(1.2f, 1.0f, 2.0f);
+glm::vec3 lightSourcePos(1.2f, 1.0f, -3.0f);
 
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -30,6 +32,12 @@ float pitch = 0.0f;
 float lastX = windowWidth / 2.0;
 float lastY = windowHeight / 2.0;
 float fov = 45.0f;
+
+InteractionWithShader interactionWithShader;
+Texture texture;
+
+int InteractionWithShader::numberOfSpotLights = 0;
+int InteractionWithShader::numberOfPointLights = 1;
 
 void processInput(GLFWwindow* window)
 {
@@ -171,30 +179,6 @@ static ShaderProgramSource loadShaderFromFile(const std::string& filePath)
     return { ss[0].str(), ss[1].str() };
 }
 
-void setMaterial(unsigned int shaderProgram, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, float shininess)
-{
-    unsigned int ambientLoc = glGetUniformLocation(shaderProgram, "material.ambient");
-    unsigned int diffuseLoc = glGetUniformLocation(shaderProgram, "material.diffuse");
-    unsigned int specularLoc = glGetUniformLocation(shaderProgram, "material.specular");
-    unsigned int shininessLoc = glGetUniformLocation(shaderProgram, "material.shininess");
-
-    glUniform3f(ambientLoc, ambient.x, ambient.y, ambient.z);
-    glUniform3f(diffuseLoc, diffuse.x, diffuse.y, diffuse.z);
-    glUniform3f(specularLoc, specular.x, specular.y, specular.z);
-    glUniform1f(shininessLoc, shininess);
-}
-
-void setLightIntensity(unsigned int shaderProgram, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)
-{
-    unsigned int ambientLoc = glGetUniformLocation(shaderProgram, "light.ambient");
-    unsigned int diffuseLoc = glGetUniformLocation(shaderProgram, "light.diffuse");
-    unsigned int specularLoc = glGetUniformLocation(shaderProgram, "light.specular");
-
-    glUniform3f(ambientLoc, ambient.x, ambient.y, ambient.z);
-    glUniform3f(diffuseLoc, diffuse.x, diffuse.y, diffuse.z);
-    glUniform3f(specularLoc, specular.x, specular.y, specular.z);
-}
-
 int main()
 {
     glfwSetErrorCallback(error);
@@ -305,44 +289,18 @@ int main()
 
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(5 * sizeof(float)));
 
-    ShaderProgramSource source = loadShaderFromFile("../basic.shader");
+    ShaderProgramSource source = loadShaderFromFile("../Shaders/basicWithMaps.shader");
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);
 
-    unsigned int objectColorLoc = glGetUniformLocation(shader, "objectColor");
-    glUniform3f(objectColorLoc, 1.0f, 1.0f, 1.0f);
+    unsigned int numberOfSpotLightsLocation = glGetUniformLocation(shader, "numberOfSpotLights");
+    glUniform1i(numberOfSpotLightsLocation, InteractionWithShader::numberOfSpotLights);
 
-    unsigned int lightColorLoc = glGetUniformLocation(shader, "lightColor");
-    glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f);
+    unsigned int numberOfPointLightsLocation = glGetUniformLocation(shader, "numberOfPointLights");
+    glUniform1i(numberOfPointLightsLocation, InteractionWithShader::numberOfPointLights);
 
-    setMaterial(shader, glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(1.0f, 1.0f, 1.0f),
-                glm::vec3(0.5f, 0.5f, 0.5f), 32.0f);
-
-    setLightIntensity(shader, glm::vec3(0.2f, 0.2f, 0.2f), glm::vec3(0.5f, 0.5f, 0.5f),
-                      glm::vec3(0.5f, 0.5f, 0.5f));
-
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("../Textures/texture.jpg", &width, &height, &nrChannels, 0);
-    if (data)
-    {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(data);
+    unsigned int boxDiffuseMap = texture.LoadTexture("../Textures/box.png", Texture::types::PNG);
+    unsigned int boxSpecularMap = texture.LoadTexture("../Textures/boxSpecularMap.png", Texture::types::PNG);
 
     unsigned int lightVAO;
     glGenVertexArrays(1, &lightVAO);
@@ -353,11 +311,9 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), NULL);
 
-    ShaderProgramSource lightSource = loadShaderFromFile("../lightSource.shader");
+    ShaderProgramSource lightSource = loadShaderFromFile("../Shaders/lightSource.shader");
     unsigned int lightShader = CreateShader(lightSource.VertexSource, lightSource.FragmentSource);
     glUseProgram(lightShader);
-
-
 
     glm::mat4 projection = glm::perspective(glm::radians(fov), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
 
@@ -376,8 +332,9 @@ int main()
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        /*lightSourcePos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
-        lightSourcePos.y = sin(glfwGetTime() / 2.0f) * 1.0f;*/
+        //lightSourcePos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
+        //lightSourcePos.y = sin(glfwGetTime() / 2.0f) * 1.0f;
+        //lightSourcePos.z = glfwGetTime() / 2.0f;
 
         glUseProgram(lightShader);
 
@@ -416,13 +373,33 @@ int main()
         unsigned int viewLoc = glGetUniformLocation(shader, "view");
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
-        unsigned int viewPosLoc = glGetUniformLocation(shader, "viewPos");
-        glUniform3f(viewPosLoc, cameraPos.x, cameraPos.y, cameraPos.z);
+        interactionWithShader.setVec3(shader, "viewPos", cameraPos);
 
-        unsigned int lightPosLoc = glGetUniformLocation(shader, "lightPos");
-        glUniform3f(lightPosLoc, lightSourcePos.x, lightSourcePos.y, lightSourcePos.z);
 
-        glBindTexture(GL_TEXTURE_2D, texture);
+///////////////////////////////////////////////////////////// LIGHT SETTINGS //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        interactionWithShader.setMaterialWithMaps(shader, glm::vec3(1.0f, 1.0f, 1.0f), 0, 1, 64.0f);
+
+        interactionWithShader.setDirLightIntensity(shader, lightSourcePos, glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.5f, 0.5f, 0.5f),
+                                                 glm::vec3(1.0f, 1.0f, 1.0f));
+
+        /*interactionWithShader.setSpotLightIntensity(shader, 0, cameraPos, cameraFront,
+                                                   glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(15.0f)),
+                                                   1.0f, 0.22f, 0.20f,
+                                                   glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f),
+                                                   glm::vec3(1.0f, 1.0f, 1.0f));*/
+
+        interactionWithShader.setPointLightIntensity(shader, 0, glm::vec3(0.7f,  0.2f,  2.0f), glm::vec3(0.05f, 0.05f, 0.05f),
+                                                     glm::vec3(0.8f, 0.8f, 0.8f), glm::vec3(1.0f, 1.0f, 1.0f),
+                                                     1.0f, 0.09f, 0.032f);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, boxDiffuseMap);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, boxSpecularMap);
+
         glBindVertexArray(vaoHandle);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
