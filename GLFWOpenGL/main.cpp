@@ -7,12 +7,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <sstream>
-#include <fstream>
-
-#include "stb_image.h"
-#include "InteractionWithShader.h"
-#include "Texture.h"
+#include "Header files/stb_image.h"
+#include "Header files/Shader.h"
+#include "Header files/Texture.h"
 
 float windowWidth = 1280;
 float windowHeight = 720;
@@ -33,11 +30,8 @@ float lastX = windowWidth / 2.0;
 float lastY = windowHeight / 2.0;
 float fov = 45.0f;
 
-InteractionWithShader interactionWithShader;
-Texture texture;
-
-int InteractionWithShader::numberOfSpotLights = 0;
-int InteractionWithShader::numberOfPointLights = 1;
+int Shader::numberOfSpotLights = 0;
+int Shader::numberOfPointLights = 1;
 
 void processInput(GLFWwindow* window)
 {
@@ -95,88 +89,9 @@ void mouse_callback(GLFWwindow * window, double xpos, double ypos)
     cameraFront = glm::normalize(front);
 }
 
-struct ShaderProgramSource
-{
-    std::string VertexSource;
-    std::string FragmentSource;
-};
-
 void error(int error, const char* description)
 {
     fputs(description, stderr);
-}
-
-static unsigned int CompileShader(unsigned int type, const std::string& source)
-{
-    unsigned int id = glCreateShader(type);
-    const char* src = source.c_str();
-    glShaderSource(id, 1, &src, nullptr);
-    glCompileShader(id);
-
-    int result;
-    glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-    if (result == GL_FALSE)
-    {
-        int length;
-        glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-        char* message = (char*)alloca(length * sizeof(char));
-        glGetShaderInfoLog(id, length, &length, message);
-        std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
-        std::cout << message << std::endl;
-        glDeleteShader(id);
-        return 0;
-    }
-
-    return id;
-}
-
-static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
-{
-    unsigned int program = glCreateProgram();
-    unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-    unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
-
-    glAttachShader(program, vs);
-    glAttachShader(program, fs);
-    glLinkProgram(program);
-    glValidateProgram(program);
-
-    glDeleteShader(vs);
-    glDeleteShader(fs);
-
-    return program;
-}
-
-static ShaderProgramSource loadShaderFromFile(const std::string& filePath)
-{
-    std::ifstream stream(filePath);
-
-    enum class ShaderType
-    {
-        NONE = -1,
-        VERTEX = 0,
-        FRAGMENT = 1
-    };
-
-    std::string line;
-    std::stringstream ss[2];
-    ShaderType type = ShaderType::NONE;
-    while (getline(stream, line))
-    {
-        if (line.find("#shader") != std::string::npos)
-        {
-            if (line.find("vertex") != std::string::npos)
-                type = ShaderType::VERTEX;
-            else if (line.find("fragment") != std::string::npos)
-                type = ShaderType::FRAGMENT;
-        }
-        else
-        {
-            ss[(int)type] << line << '\n';
-        }
-    }
-
-    return { ss[0].str(), ss[1].str() };
 }
 
 int main()
@@ -289,18 +204,18 @@ int main()
 
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(5 * sizeof(float)));
 
-    ShaderProgramSource source = loadShaderFromFile("../Shaders/basicWithMaps.shader");
-    unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
-    glUseProgram(shader);
+    Shader::ShaderProgramSource source = Shader::loadShaderFromFile("../Shaders/basicWithMaps.shader");
+    unsigned int shaderBasicWithMaps = Shader::CreateShader(source.VertexSource, source.FragmentSource);
+    glUseProgram(shaderBasicWithMaps);
 
-    unsigned int numberOfSpotLightsLocation = glGetUniformLocation(shader, "numberOfSpotLights");
-    glUniform1i(numberOfSpotLightsLocation, InteractionWithShader::numberOfSpotLights);
+    unsigned int numberOfSpotLightsLocation = glGetUniformLocation(shaderBasicWithMaps, "numberOfSpotLights");
+    glUniform1i(numberOfSpotLightsLocation, Shader::numberOfSpotLights);
 
-    unsigned int numberOfPointLightsLocation = glGetUniformLocation(shader, "numberOfPointLights");
-    glUniform1i(numberOfPointLightsLocation, InteractionWithShader::numberOfPointLights);
+    unsigned int numberOfPointLightsLocation = glGetUniformLocation(shaderBasicWithMaps, "numberOfPointLights");
+    glUniform1i(numberOfPointLightsLocation, Shader::numberOfPointLights);
 
-    unsigned int boxDiffuseMap = texture.LoadTexture("../Textures/box.png", Texture::types::PNG);
-    unsigned int boxSpecularMap = texture.LoadTexture("../Textures/boxSpecularMap.png", Texture::types::PNG);
+    unsigned int boxDiffuseMap = Texture::LoadTexture("../Textures/box.png", Texture::types::PNG);
+    unsigned int boxSpecularMap = Texture::LoadTexture("../Textures/boxSpecularMap.png", Texture::types::PNG);
 
     unsigned int lightVAO;
     glGenVertexArrays(1, &lightVAO);
@@ -311,8 +226,8 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), NULL);
 
-    ShaderProgramSource lightSource = loadShaderFromFile("../Shaders/lightSource.shader");
-    unsigned int lightShader = CreateShader(lightSource.VertexSource, lightSource.FragmentSource);
+    Shader::ShaderProgramSource lightSource = Shader::loadShaderFromFile("../Shaders/lightSource.shader");
+    unsigned int lightShader = Shader::CreateShader(lightSource.VertexSource, lightSource.FragmentSource);
     glUseProgram(lightShader);
 
     glm::mat4 projection = glm::perspective(glm::radians(fov), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
@@ -357,29 +272,29 @@ int main()
         glBindVertexArray(lightVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
-        glUseProgram(shader);
+        glUseProgram(shaderBasicWithMaps);
 
         glm::mat4 model = glm::mat4(1.0f);
 
         glm::mat4 view = glm::mat4(1.0f);
         view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
-        unsigned int modelLoc = glGetUniformLocation(shader, "model");
+        unsigned int modelLoc = glGetUniformLocation(shaderBasicWithMaps, "model");
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-        unsigned int projLocation = glGetUniformLocation(shader, "projection");
+        unsigned int projLocation = glGetUniformLocation(shaderBasicWithMaps, "projection");
         glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
 
-        unsigned int viewLoc = glGetUniformLocation(shader, "view");
+        unsigned int viewLoc = glGetUniformLocation(shaderBasicWithMaps, "view");
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
-        interactionWithShader.setVec3(shader, "viewPos", cameraPos);
+        Shader::setVec3(shaderBasicWithMaps, "viewPos", cameraPos);
 
 
 ///////////////////////////////////////////////////////////// LIGHT SETTINGS //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        interactionWithShader.setMaterialWithMaps(shader, glm::vec3(1.0f, 1.0f, 1.0f), 0, 1, 64.0f);
+        Shader::setMaterialWithMaps(shaderBasicWithMaps, glm::vec3(1.0f, 1.0f, 1.0f), 0, 1, 64.0f);
 
-        interactionWithShader.setDirLightIntensity(shader, lightSourcePos, glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.5f, 0.5f, 0.5f),
+        Shader::setDirLightIntensity(shaderBasicWithMaps, lightSourcePos, glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.5f, 0.5f, 0.5f),
                                                  glm::vec3(1.0f, 1.0f, 1.0f));
 
         /*interactionWithShader.setSpotLightIntensity(shader, 0, cameraPos, cameraFront,
@@ -388,7 +303,7 @@ int main()
                                                    glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f),
                                                    glm::vec3(1.0f, 1.0f, 1.0f));*/
 
-        interactionWithShader.setPointLightIntensity(shader, 0, glm::vec3(0.7f,  0.2f,  2.0f), glm::vec3(0.05f, 0.05f, 0.05f),
+        Shader::setPointLightIntensity(shaderBasicWithMaps, 0, glm::vec3(0.7f,  0.2f,  2.0f), glm::vec3(0.05f, 0.05f, 0.05f),
                                                      glm::vec3(0.8f, 0.8f, 0.8f), glm::vec3(1.0f, 1.0f, 1.0f),
                                                      1.0f, 0.09f, 0.032f);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -407,7 +322,8 @@ int main()
         glfwPollEvents();
     }
 
-    glDeleteProgram(shader);
+    glDeleteProgram(shaderBasicWithMaps);
+    glDeleteProgram(lightShader);
 
     glfwTerminate();
     return 0;

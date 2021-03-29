@@ -2,13 +2,15 @@
 // Created by eger on 23.03.2021.
 //
 
-#include "Texture.h"
+#include "Header files/Texture.h"
 
 #include <iostream>
 
 #include <GL/glew.h>
 
-#include "stb_image.h"
+#include "Header files/stb_image.h"
+
+unsigned int Texture::texture = 0;
 
 unsigned int Texture::LoadTexture(const char* filePath, types typeOfFile)
 {
