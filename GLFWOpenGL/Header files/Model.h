@@ -29,12 +29,12 @@ public:
     std::string directory;
     bool gammaCorrection;
 
-    Model(char *path)
+    Model(const std::string &path, bool gamma = false) : gammaCorrection(gamma)
     {
         loadModel(path);
     }
 
-    void Draw(unsigned int &shaderProgram);
+    void Draw(unsigned int shaderProgram);
 
 private:
     void loadModel(std::string path);

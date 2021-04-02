@@ -6,7 +6,7 @@
 
 unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
 
-void Model::Draw(unsigned int &shaderProgram)
+void Model::Draw(unsigned int shaderProgram)
 {
     for(unsigned int i = 0; i < meshes.size(); i++)
         meshes[i].Draw(shaderProgram);
@@ -15,13 +15,14 @@ void Model::Draw(unsigned int &shaderProgram)
 void Model::loadModel(std::string path)
 {
     Assimp::Importer importer;
-    const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals);
+    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace | aiProcess_GenNormals);
 
     if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
     {
-        std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
+        std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
         return;
     }
+
     directory = path.substr(0, path.find_last_of('/'));
 
     processNode(scene->mRootNode, scene);
@@ -31,7 +32,7 @@ void Model::processNode(aiNode *node, const aiScene *scene)
 {
     for(unsigned int i = 0; i < node->mNumMeshes; i++)
     {
-        aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
+        aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
         meshes.push_back(processMesh(mesh, scene));
     }
 
@@ -93,6 +94,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     }
 
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+
     std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
     textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
 

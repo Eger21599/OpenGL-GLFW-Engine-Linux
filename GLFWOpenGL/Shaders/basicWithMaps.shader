@@ -82,8 +82,6 @@
 
   uniform vec3 viewPos;
 
-  uniform sampler2D Texture;
-
   out vec4 FragColor;
 
   vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir);
