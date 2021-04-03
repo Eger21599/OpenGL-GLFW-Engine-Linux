@@ -1,0 +1,55 @@
+The system is: Linux - 5.8.0-44-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d3b24/fast && /usr/bin/make  -f CMakeFiles/cmTC_d3b24.dir/build.make CMakeFiles/cmTC_d3b24.dir/build
+make[1]: вход в каталог «/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_d3b24.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d3b24.dir/testCCompiler.c.o   -c /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_d3b24
+/snap/clion/139/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3b24.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_d3b24.dir/testCCompiler.c.o  -o cmTC_d3b24 
+make[1]: выход из каталога «/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp»
+
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_922e0/fast && /usr/bin/make  -f CMakeFiles/cmTC_922e0.dir/build.make CMakeFiles/cmTC_922e0.dir/build
+make[1]: вход в каталог «/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building CXX object CMakeFiles/cmTC_922e0.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_922e0.dir/testCXXCompiler.cxx.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_922e0
+/snap/clion/139/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_922e0.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_922e0.dir/testCXXCompiler.cxx.o  -o cmTC_922e0 
+make[1]: выход из каталога «/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/CMakeTmp»
+
+
+

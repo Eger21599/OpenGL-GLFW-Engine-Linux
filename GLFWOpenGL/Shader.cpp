@@ -84,16 +84,10 @@ void Shader::setMaterialWithMaps(unsigned int shaderProgram, glm::vec3 ambient, 
     glUniform1f(shininessLoc, shininess);
 }
 
-void Shader::setMaterial(unsigned int shaderProgram, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, float shininess)
+void Shader::setMaterial(unsigned int shaderProgram, float shininess)
 {
-    unsigned int ambientLoc = glGetUniformLocation(shaderProgram, "material.ambient");
-    unsigned int diffuseLoc = glGetUniformLocation(shaderProgram, "material.diffuse");
-    unsigned int specularLoc = glGetUniformLocation(shaderProgram, "material.specular");
     unsigned int shininessLoc = glGetUniformLocation(shaderProgram, "material.shininess");
 
-    glUniform3f(ambientLoc, ambient.x, ambient.y, ambient.z);
-    glUniform3f(diffuseLoc, diffuse.x, diffuse.y, diffuse.z);
-    glUniform3f(specularLoc, specular.x, specular.y, specular.z);
     glUniform1f(shininessLoc, shininess);
 }
 
