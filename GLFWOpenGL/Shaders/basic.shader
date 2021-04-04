@@ -8,6 +8,7 @@
   out vec2 TexCoords;
   out vec3 Normal;
   out vec3 FragPos;
+  out vec3 Position;
 
   uniform mat4 model;
   uniform mat4 view;
@@ -18,6 +19,7 @@
       TexCoords = aTexCoords;
       Normal = mat3(transpose(inverse(model))) * aNormal;
       FragPos = vec3(model * vec4(aPos, 1.0f));
+      Position = vec3(view * vec4(aPos, 1.0f));
 
       gl_Position = projection * view * model * vec4(aPos, 1.0);
   }
@@ -30,6 +32,7 @@
   in vec2 TexCoords;
   in vec3 Normal;
   in vec3 FragPos;
+  in vec3 Position;
 
   struct Material {
     sampler2D texture_diffuse1;
@@ -73,6 +76,15 @@
     vec3 diffuse;
     vec3 specular;
   };
+
+  struct FogInfo {
+    bool isFog;
+
+    float maxDist;
+    float minDist;
+
+    vec3 color;
+  };
   #define NR_POINT_LIGHTS 10
   #define NR_SPOT_LIGHTS 10
 
@@ -80,6 +92,7 @@
   uniform DirLight dirLight;
   uniform PointLight pointLights[NR_POINT_LIGHTS];
   uniform SpotLight spotLights[NR_SPOT_LIGHTS];
+  uniform FogInfo fog;
 
   uniform int numberOfPointLights;
   uniform int numberOfSpotLights;
@@ -96,6 +109,9 @@
 
     vec3 result = CalcDirLight(dirLight, norm, viewDir);
 
+    if(!gl_FrontFacing)
+        norm = -norm;
+
     if(numberOfPointLights > 0)
     {
         for (int i = 0; i < numberOfPointLights; i++)
@@ -106,6 +122,15 @@
     {
       for (int j = 0; j < numberOfSpotLights; j++)
           result += CalcSpotLight(spotLights[j], norm, FragPos, viewDir);
+    }
+
+    if(fog.isFog)
+    {
+      float dist = length(Position.xyz);
+      float fogFactor = (fog.maxDist - dist) / (fog.maxDist - fog.minDist);
+      fogFactor = clamp(fogFactor, 0.0f, 1.0f);
+
+      result = mix(fog.color, result, fogFactor);
     }
 
     FragColor = vec4(result, 1.0);

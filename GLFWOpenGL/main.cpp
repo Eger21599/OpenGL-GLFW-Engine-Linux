@@ -26,13 +26,20 @@ glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 bool isRightButton = false;
 
-//Model Gui
+///////////////////////////// Model Gui ///////////////////////////////////////
 float shininess = 32.0f;
+bool isSpotLight = false;
+bool isPointLight = false;
 struct Transform {
     glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec3 scale    = glm::vec3(0.5f, 0.5f, 0.5f);
 };
+float fogMaxDist = 50.0f;
+float fogMinDist = 10.0f;
+glm::vec3 fogColor = glm::vec3(0.475f, 0.475f, 0.475f);
+bool isFog = false;
+///////////////////////////////////////////////////////////////////////////////
 
 Transform transform;
 
@@ -112,12 +119,6 @@ int main()
     unsigned int basicShader = Shader::CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(basicShader);
 
-    unsigned int numberOfSpotLightsLocation = glGetUniformLocation(basicShader, "numberOfSpotLights");
-    glUniform1i(numberOfSpotLightsLocation, Shader::numberOfSpotLights);
-
-    unsigned int numberOfPointLightsLocation = glGetUniformLocation(basicShader, "numberOfPointLights");
-    glUniform1i(numberOfPointLightsLocation, Shader::numberOfPointLights);
-
     glBindVertexArray(0);
     glUseProgram(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -142,8 +143,8 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        //lightSourcePos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
-        //lightSourcePos.y = sin(glfwGetTime() / 2.0f) * 1.0f;
+        lightSourcePos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
+        lightSourcePos.y = sin(glfwGetTime() / 2.0f) * 1.0f;
         //lightSourcePos.z = glfwGetTime() / 2.0f;
 
         glUseProgram(basicShader);
@@ -168,17 +169,46 @@ int main()
 
         Shader::setVec3(basicShader, "viewPos", cameraPos);
 
+        unsigned int numberOfSpotLightsLocation = glGetUniformLocation(basicShader, "numberOfSpotLights");
+        glUniform1i(numberOfSpotLightsLocation, Shader::numberOfSpotLights);
+
+        unsigned int numberOfPointLightsLocation = glGetUniformLocation(basicShader, "numberOfPointLights");
+        glUniform1i(numberOfPointLightsLocation, Shader::numberOfPointLights);
+
+        /*int fogOn = 0;
+        if(isFog)
+            fogOn = 1;
+        else
+            fogOn = 0;*/
+
+        unsigned int isFogLoc = glGetUniformLocation(basicShader, "fog.isFog");
+        glUniform1i(isFogLoc, isFog);
+
+        Shader::setFloat(basicShader, "fog.maxDist", fogMaxDist);
+        Shader::setFloat(basicShader, "fog.minDist", fogMinDist);
+        Shader::setVec3(basicShader, "fog.color", fogColor);
+
+        if(isSpotLight)
+            Shader::numberOfSpotLights = 1;
+        else
+            Shader::numberOfSpotLights = 0;
+
+        if(isPointLight)
+            Shader::numberOfPointLights = 1;
+        else
+            Shader::numberOfPointLights = 0;
+
 ///////////////////////////////////////////////////////////// LIGHT AND MATERIAL SETTINGS //////////////////////////////////////////////////////////////////////////////////////////////////////////
         Shader::setMaterial(basicShader, shininess);
 
         Shader::setDirLightIntensity(basicShader, lightSourcePos, glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.5f, 0.5f, 0.5f),
                                                  glm::vec3(1.0f, 1.0f, 1.0f));
 
-        /*Shader::setSpotLightIntensity(basicShader, 0, cameraPos, cameraFront,
+        Shader::setSpotLightIntensity(basicShader, 0, cameraPos, cameraFront,
                                                    glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(15.0f)),
                                                    1.0f, 0.22f, 0.20f,
                                                    glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f),
-                                                   glm::vec3(1.0f, 1.0f, 1.0f));*/
+                                                   glm::vec3(1.0f, 1.0f, 1.0f));
 
         Shader::setPointLightIntensity(basicShader, 0, glm::vec3(0.7f,  0.2f,  2.0f), glm::vec3(0.05f, 0.05f, 0.05f),
                                                      glm::vec3(0.8f, 0.8f, 0.8f), glm::vec3(1.0f, 1.0f, 1.0f),
@@ -274,10 +304,22 @@ void ModelGui()
 {
     ImGui::Begin("Debug");
     ImGui::InputFloat("FOV", &fov);
+
     ImGui::Text("Transform");
     ImGui::InputFloat3("Position", &transform.position.x);
     ImGui::InputFloat3("Scale", &transform.scale.x);
+
+    ImGui::Text("Light settings");
+    ImGui::Checkbox("Spot Light", &isSpotLight);
+    ImGui::Checkbox("Point Light", &isPointLight);
     ImGui::InputFloat("Shininess", &shininess);
+
+    ImGui::Text("Fog settings");
+    ImGui::Checkbox("Fog", &isFog);
+    ImGui::SliderFloat("Max Dist", &fogMaxDist, 0.0f, 100.0f);
+    ImGui::SliderFloat("Min Dist", &fogMinDist, 0.0f, 100.0f);
+    ImGui::ColorEdit3("Color", &fogColor.x);
+
     ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000 / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
     ImGui::End();
 }
