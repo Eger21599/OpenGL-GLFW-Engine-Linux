@@ -100,6 +100,10 @@ int main()
     glfwSetCursorPosCallback(window, mouse_callback);
     glEnable(GL_DEPTH_TEST);
 
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glFrontFace(GL_CCW);
+
     if (glewInit() != GLEW_OK)
     {
         printf("Error: glew initialise error!\n");
@@ -131,6 +135,11 @@ int main()
         lastFrame = currentFrame;
 
         processInput(window);
+
+        if(isFog)
+            glClearColor(0.475f, 0.475f, 0.475f, 1.0f);
+        else
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
