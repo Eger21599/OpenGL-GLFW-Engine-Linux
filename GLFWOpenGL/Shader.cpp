@@ -22,6 +22,18 @@ void Shader::setFloat(unsigned int shaderProgram, std::string name, float value)
     glUniform1f(location, value);
 }
 
+void Shader::setInt(unsigned  int shaderProgram, std::string name, int value)
+{
+    unsigned int location = glGetUniformLocation(shaderProgram, name.c_str());
+    glUniform1i(location, value);
+}
+
+void Shader::setMat4(unsigned int shaderProgram, std::string name, glm::mat4 value)
+{
+    unsigned int location = glGetUniformLocation(shaderProgram, name.c_str());
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
+}
+
 Shader::ShaderProgramSource Shader::loadShaderFromFile(const std::string& filePath)
 {
     std::ifstream stream(filePath);

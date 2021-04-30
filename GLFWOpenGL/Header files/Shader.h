@@ -28,6 +28,8 @@ public:
 
     static void setVec3(unsigned int shaderProgram, std::string name, glm::vec3 value);
     static void setFloat(unsigned int shaderProgram, std::string name, float value);
+    static void setInt(unsigned  int shaderProgram, std::string name, int value);
+    static void setMat4(unsigned int shaderProgram, std::string name, glm::mat4 value);
 
     static ShaderProgramSource loadShaderFromFile(const std::string& filePath);
     static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
