@@ -39,6 +39,7 @@ float fogMaxDist = 50.0f;
 float fogMinDist = 10.0f;
 glm::vec3 fogColor = glm::vec3(0.475f, 0.475f, 0.475f);
 bool isFog = false;
+bool isNormal = false;
 ///////////////////////////////////////////////////////////////////////////////
 
 Transform transform;
@@ -266,7 +267,7 @@ int main()
             Shader::numberOfPointLights = 0;
 
 ///////////////////////////////////////////////////////////// LIGHT AND MATERIAL SETTINGS //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Shader::setMaterial(basicShader, shininess);
+        Shader::setMaterial(basicShader, shininess, isNormal);
 
         Shader::setDirLightIntensity(basicShader, lightSourcePos, glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.5f, 0.5f, 0.5f),
                                                  glm::vec3(1.0f, 1.0f, 1.0f));
@@ -285,7 +286,7 @@ int main()
 
         ModelGui();
 
-        glDepthFunc(GL_LEQUAL);
+        /*glDepthFunc(GL_LEQUAL);
         glUseProgram(skyboxShader);
         glm::mat4 skyboxView = glm::mat4(glm::mat3(glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp)));
         Shader::setMat4(skyboxShader, "view", skyboxView);
@@ -296,7 +297,7 @@ int main()
         glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
-        glDepthFunc(GL_LESS);
+        glDepthFunc(GL_LESS);*/
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -424,6 +425,7 @@ void ModelGui()
     ImGui::Checkbox("Spot Light", &isSpotLight);
     ImGui::Checkbox("Point Light", &isPointLight);
     ImGui::InputFloat("Shininess", &shininess);
+    ImGui::Checkbox("isNormal", &isNormal);
 
     ImGui::Text("Fog settings");
     ImGui::Checkbox("Fog", &isFog);

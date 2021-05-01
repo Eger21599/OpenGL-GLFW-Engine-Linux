@@ -8,153 +8,153 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug"/>
+				<Option working_dir="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug"/>
+				<Option working_dir="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug"/>
+				<Option working_dir="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="GLFWOpenGL">
-				<Option output="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/GLFWOpenGL" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug"/>
+				<Option output="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/GLFWOpenGL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLFWOpenGL"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLFWOpenGL"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="GLFWOpenGL/fast">
-				<Option output="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/GLFWOpenGL" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug"/>
+				<Option output="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/GLFWOpenGL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLFWOpenGL/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 GLFWOpenGL/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Header files/Mesh.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Header files/Mesh.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Header files/Model.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Header files/Model.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Header files/Shader.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Header files/Shader.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Header files/stb_image.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Header files/stb_image.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Mesh.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Mesh.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Model.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Model.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/Shader.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Shader.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imconfig.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imconfig.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_demo.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_demo.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_draw.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_draw.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_internal.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_internal.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_tables.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_tables.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_widgets.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_widgets.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imstb_rectpack.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imstb_rectpack.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imstb_textedit.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imstb_textedit.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imstb_truetype.h">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imstb_truetype.h">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/main.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/main.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/stb_image.cpp">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/stb_image.cpp">
 			<Option target="GLFWOpenGL"/>
 		</Unit>
-		<Unit filename="/windows/Egerous/EgerCLion/GLFWOpenGL/CMakeLists.txt">
+		<Unit filename="/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

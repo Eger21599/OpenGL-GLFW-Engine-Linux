@@ -1,4 +1,4 @@
-/snap/clion/149/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /windows/Egerous/EgerCLion/GLFWOpenGL
+/home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL
 -- Configuring done
 -- Generating done
--- Build files have been written to: /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug
+-- Build files have been written to: /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug

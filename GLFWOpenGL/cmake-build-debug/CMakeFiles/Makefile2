@@ -54,25 +54,25 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL
+CMAKE_SOURCE_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug
+CMAKE_BINARY_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/GLFWOpenGL.dir/all
+all: CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/all
 
 .PHONY : all
 
@@ -82,36 +82,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/GLFWOpenGL.dir/clean
+clean: CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/GLFWOpenGL.dir
+# Target rules for target CMakeFiles/OpenGL-GLFW-Engine-Linux.dir
 
 # All Build rule for target.
-CMakeFiles/GLFWOpenGL.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target GLFWOpenGL"
-.PHONY : CMakeFiles/GLFWOpenGL.dir/all
+CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target OpenGL-GLFW-Engine-Linux"
+.PHONY : CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/GLFWOpenGL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles 13
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GLFWOpenGL.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/GLFWOpenGL.dir/rule
+CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles 13
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/rule
 
 # Convenience name for target.
-GLFWOpenGL: CMakeFiles/GLFWOpenGL.dir/rule
+OpenGL-GLFW-Engine-Linux: CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/rule
 
-.PHONY : GLFWOpenGL
+.PHONY : OpenGL-GLFW-Engine-Linux
 
 # clean rule for target.
-CMakeFiles/GLFWOpenGL.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/clean
-.PHONY : CMakeFiles/GLFWOpenGL.dir/clean
+CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/clean
+.PHONY : CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

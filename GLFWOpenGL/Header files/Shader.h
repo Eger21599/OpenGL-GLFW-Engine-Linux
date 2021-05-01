@@ -36,7 +36,7 @@ public:
 
     static void setMaterialWithMaps(unsigned int shaderProgram, glm::vec3 ambient, int diffuseIndex, int specularIndex, float shininess);
 
-    static void setMaterial(unsigned int shaderProgram, float shininess);
+    static void setMaterial(unsigned int shaderProgram, float shininess, bool isNormal);
 
     static void setDirLightIntensity(unsigned int shaderProgram, glm::vec3 direction, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular);
 

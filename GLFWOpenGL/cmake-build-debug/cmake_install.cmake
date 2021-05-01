@@ -1,4 +1,4 @@
-# Install script for directory: /windows/Egerous/EgerCLion/GLFWOpenGL
+# Install script for directory: /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

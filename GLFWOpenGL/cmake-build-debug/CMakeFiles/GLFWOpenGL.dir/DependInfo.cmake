@@ -4,18 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/Mesh.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/Model.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Model.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/Shader.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_demo.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_draw.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_tables.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_widgets.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/main.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/main.cpp.o"
-  "/windows/Egerous/EgerCLion/GLFWOpenGL/stb_image.cpp" "/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Mesh.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Model.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Model.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Shader.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_demo.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_draw.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_tables.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_widgets.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/main.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/main.cpp.o"
+  "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/stb_image.cpp" "/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

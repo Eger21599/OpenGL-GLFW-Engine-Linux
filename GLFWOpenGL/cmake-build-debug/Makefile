@@ -58,19 +58,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL
+CMAKE_SOURCE_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug
+CMAKE_BINARY_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ CMAKE_BINARY_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/149/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -89,7 +89,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/149/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,17 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GLFWOpenGL
+# Target rules for targets named OpenGL-GLFW-Engine-Linux
 
 # Build rule for target.
-GLFWOpenGL: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GLFWOpenGL
-.PHONY : GLFWOpenGL
+OpenGL-GLFW-Engine-Linux: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 OpenGL-GLFW-Engine-Linux
+.PHONY : OpenGL-GLFW-Engine-Linux
 
 # fast build rule for target.
-GLFWOpenGL/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/build
-.PHONY : GLFWOpenGL/fast
+OpenGL-GLFW-Engine-Linux/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build
+.PHONY : OpenGL-GLFW-Engine-Linux/fast
 
 Mesh.o: Mesh.cpp.o
 
@@ -148,7 +148,7 @@ Mesh.o: Mesh.cpp.o
 
 # target to build an object file
 Mesh.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Mesh.cpp.o
 .PHONY : Mesh.cpp.o
 
 Mesh.i: Mesh.cpp.i
@@ -157,7 +157,7 @@ Mesh.i: Mesh.cpp.i
 
 # target to preprocess a source file
 Mesh.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Mesh.cpp.i
 .PHONY : Mesh.cpp.i
 
 Mesh.s: Mesh.cpp.s
@@ -166,7 +166,7 @@ Mesh.s: Mesh.cpp.s
 
 # target to generate assembly for a file
 Mesh.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Mesh.cpp.s
 .PHONY : Mesh.cpp.s
 
 Model.o: Model.cpp.o
@@ -175,7 +175,7 @@ Model.o: Model.cpp.o
 
 # target to build an object file
 Model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Model.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Model.cpp.o
 .PHONY : Model.cpp.o
 
 Model.i: Model.cpp.i
@@ -184,7 +184,7 @@ Model.i: Model.cpp.i
 
 # target to preprocess a source file
 Model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Model.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Model.cpp.i
 .PHONY : Model.cpp.i
 
 Model.s: Model.cpp.s
@@ -193,7 +193,7 @@ Model.s: Model.cpp.s
 
 # target to generate assembly for a file
 Model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Model.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Model.cpp.s
 .PHONY : Model.cpp.s
 
 Shader.o: Shader.cpp.o
@@ -202,7 +202,7 @@ Shader.o: Shader.cpp.o
 
 # target to build an object file
 Shader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Shader.cpp.o
 .PHONY : Shader.cpp.o
 
 Shader.i: Shader.cpp.i
@@ -211,7 +211,7 @@ Shader.i: Shader.cpp.i
 
 # target to preprocess a source file
 Shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Shader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Shader.cpp.i
 .PHONY : Shader.cpp.i
 
 Shader.s: Shader.cpp.s
@@ -220,7 +220,7 @@ Shader.s: Shader.cpp.s
 
 # target to generate assembly for a file
 Shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/Shader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/Shader.cpp.s
 .PHONY : Shader.cpp.s
 
 libs/imgui/imgui.o: libs/imgui/imgui.cpp.o
@@ -229,7 +229,7 @@ libs/imgui/imgui.o: libs/imgui/imgui.cpp.o
 
 # target to build an object file
 libs/imgui/imgui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui.cpp.o
 .PHONY : libs/imgui/imgui.cpp.o
 
 libs/imgui/imgui.i: libs/imgui/imgui.cpp.i
@@ -238,7 +238,7 @@ libs/imgui/imgui.i: libs/imgui/imgui.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui.cpp.i
 .PHONY : libs/imgui/imgui.cpp.i
 
 libs/imgui/imgui.s: libs/imgui/imgui.cpp.s
@@ -247,7 +247,7 @@ libs/imgui/imgui.s: libs/imgui/imgui.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui.cpp.s
 .PHONY : libs/imgui/imgui.cpp.s
 
 libs/imgui/imgui_demo.o: libs/imgui/imgui_demo.cpp.o
@@ -256,7 +256,7 @@ libs/imgui/imgui_demo.o: libs/imgui/imgui_demo.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_demo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_demo.cpp.o
 .PHONY : libs/imgui/imgui_demo.cpp.o
 
 libs/imgui/imgui_demo.i: libs/imgui/imgui_demo.cpp.i
@@ -265,7 +265,7 @@ libs/imgui/imgui_demo.i: libs/imgui/imgui_demo.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_demo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_demo.cpp.i
 .PHONY : libs/imgui/imgui_demo.cpp.i
 
 libs/imgui/imgui_demo.s: libs/imgui/imgui_demo.cpp.s
@@ -274,7 +274,7 @@ libs/imgui/imgui_demo.s: libs/imgui/imgui_demo.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_demo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_demo.cpp.s
 .PHONY : libs/imgui/imgui_demo.cpp.s
 
 libs/imgui/imgui_draw.o: libs/imgui/imgui_draw.cpp.o
@@ -283,7 +283,7 @@ libs/imgui/imgui_draw.o: libs/imgui/imgui_draw.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_draw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_draw.cpp.o
 .PHONY : libs/imgui/imgui_draw.cpp.o
 
 libs/imgui/imgui_draw.i: libs/imgui/imgui_draw.cpp.i
@@ -292,7 +292,7 @@ libs/imgui/imgui_draw.i: libs/imgui/imgui_draw.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_draw.cpp.i
 .PHONY : libs/imgui/imgui_draw.cpp.i
 
 libs/imgui/imgui_draw.s: libs/imgui/imgui_draw.cpp.s
@@ -301,7 +301,7 @@ libs/imgui/imgui_draw.s: libs/imgui/imgui_draw.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_draw.cpp.s
 .PHONY : libs/imgui/imgui_draw.cpp.s
 
 libs/imgui/imgui_impl_glfw.o: libs/imgui/imgui_impl_glfw.cpp.o
@@ -310,7 +310,7 @@ libs/imgui/imgui_impl_glfw.o: libs/imgui/imgui_impl_glfw.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_impl_glfw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_glfw.cpp.o
 .PHONY : libs/imgui/imgui_impl_glfw.cpp.o
 
 libs/imgui/imgui_impl_glfw.i: libs/imgui/imgui_impl_glfw.cpp.i
@@ -319,7 +319,7 @@ libs/imgui/imgui_impl_glfw.i: libs/imgui/imgui_impl_glfw.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_impl_glfw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_glfw.cpp.i
 .PHONY : libs/imgui/imgui_impl_glfw.cpp.i
 
 libs/imgui/imgui_impl_glfw.s: libs/imgui/imgui_impl_glfw.cpp.s
@@ -328,7 +328,7 @@ libs/imgui/imgui_impl_glfw.s: libs/imgui/imgui_impl_glfw.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_impl_glfw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_glfw.cpp.s
 .PHONY : libs/imgui/imgui_impl_glfw.cpp.s
 
 libs/imgui/imgui_impl_opengl3.o: libs/imgui/imgui_impl_opengl3.cpp.o
@@ -337,7 +337,7 @@ libs/imgui/imgui_impl_opengl3.o: libs/imgui/imgui_impl_opengl3.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_impl_opengl3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_opengl3.cpp.o
 .PHONY : libs/imgui/imgui_impl_opengl3.cpp.o
 
 libs/imgui/imgui_impl_opengl3.i: libs/imgui/imgui_impl_opengl3.cpp.i
@@ -346,7 +346,7 @@ libs/imgui/imgui_impl_opengl3.i: libs/imgui/imgui_impl_opengl3.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_impl_opengl3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_opengl3.cpp.i
 .PHONY : libs/imgui/imgui_impl_opengl3.cpp.i
 
 libs/imgui/imgui_impl_opengl3.s: libs/imgui/imgui_impl_opengl3.cpp.s
@@ -355,7 +355,7 @@ libs/imgui/imgui_impl_opengl3.s: libs/imgui/imgui_impl_opengl3.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_impl_opengl3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_impl_opengl3.cpp.s
 .PHONY : libs/imgui/imgui_impl_opengl3.cpp.s
 
 libs/imgui/imgui_tables.o: libs/imgui/imgui_tables.cpp.o
@@ -364,7 +364,7 @@ libs/imgui/imgui_tables.o: libs/imgui/imgui_tables.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_tables.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_tables.cpp.o
 .PHONY : libs/imgui/imgui_tables.cpp.o
 
 libs/imgui/imgui_tables.i: libs/imgui/imgui_tables.cpp.i
@@ -373,7 +373,7 @@ libs/imgui/imgui_tables.i: libs/imgui/imgui_tables.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_tables.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_tables.cpp.i
 .PHONY : libs/imgui/imgui_tables.cpp.i
 
 libs/imgui/imgui_tables.s: libs/imgui/imgui_tables.cpp.s
@@ -382,7 +382,7 @@ libs/imgui/imgui_tables.s: libs/imgui/imgui_tables.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_tables.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_tables.cpp.s
 .PHONY : libs/imgui/imgui_tables.cpp.s
 
 libs/imgui/imgui_widgets.o: libs/imgui/imgui_widgets.cpp.o
@@ -391,7 +391,7 @@ libs/imgui/imgui_widgets.o: libs/imgui/imgui_widgets.cpp.o
 
 # target to build an object file
 libs/imgui/imgui_widgets.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_widgets.cpp.o
 .PHONY : libs/imgui/imgui_widgets.cpp.o
 
 libs/imgui/imgui_widgets.i: libs/imgui/imgui_widgets.cpp.i
@@ -400,7 +400,7 @@ libs/imgui/imgui_widgets.i: libs/imgui/imgui_widgets.cpp.i
 
 # target to preprocess a source file
 libs/imgui/imgui_widgets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_widgets.cpp.i
 .PHONY : libs/imgui/imgui_widgets.cpp.i
 
 libs/imgui/imgui_widgets.s: libs/imgui/imgui_widgets.cpp.s
@@ -409,7 +409,7 @@ libs/imgui/imgui_widgets.s: libs/imgui/imgui_widgets.cpp.s
 
 # target to generate assembly for a file
 libs/imgui/imgui_widgets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/libs/imgui/imgui_widgets.cpp.s
 .PHONY : libs/imgui/imgui_widgets.cpp.s
 
 main.o: main.cpp.o
@@ -418,7 +418,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -427,7 +427,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -436,7 +436,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 stb_image.o: stb_image.cpp.o
@@ -445,7 +445,7 @@ stb_image.o: stb_image.cpp.o
 
 # target to build an object file
 stb_image.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/stb_image.cpp.o
 .PHONY : stb_image.cpp.o
 
 stb_image.i: stb_image.cpp.i
@@ -454,7 +454,7 @@ stb_image.i: stb_image.cpp.i
 
 # target to preprocess a source file
 stb_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/stb_image.cpp.i
 .PHONY : stb_image.cpp.i
 
 stb_image.s: stb_image.cpp.s
@@ -463,7 +463,7 @@ stb_image.s: stb_image.cpp.s
 
 # target to generate assembly for a file
 stb_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWOpenGL.dir/build.make CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/build.make CMakeFiles/OpenGL-GLFW-Engine-Linux.dir/stb_image.cpp.s
 .PHONY : stb_image.cpp.s
 
 # Help Target
@@ -474,7 +474,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... GLFWOpenGL"
+	@echo "... OpenGL-GLFW-Engine-Linux"
 	@echo "... Mesh.o"
 	@echo "... Mesh.i"
 	@echo "... Mesh.s"

@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/eger/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7142.21/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL
+CMAKE_SOURCE_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug
+CMAKE_BINARY_DIR = /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GLFWOpenGL.dir/depend.make
@@ -78,159 +78,159 @@ include CMakeFiles/GLFWOpenGL.dir/flags.make
 
 CMakeFiles/GLFWOpenGL.dir/main.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GLFWOpenGL.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/main.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GLFWOpenGL.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/main.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/main.cpp
 
 CMakeFiles/GLFWOpenGL.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/main.cpp > CMakeFiles/GLFWOpenGL.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/main.cpp > CMakeFiles/GLFWOpenGL.dir/main.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/main.cpp -o CMakeFiles/GLFWOpenGL.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/main.cpp -o CMakeFiles/GLFWOpenGL.dir/main.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o: ../stb_image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/stb_image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/stb_image.cpp
 
 CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/stb_image.cpp > CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/stb_image.cpp > CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/stb_image.cpp -o CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/stb_image.cpp -o CMakeFiles/GLFWOpenGL.dir/stb_image.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o: ../Mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/Mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Mesh.cpp
 
 CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/Mesh.cpp > CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Mesh.cpp > CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/Mesh.cpp -o CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Mesh.cpp -o CMakeFiles/GLFWOpenGL.dir/Mesh.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o: ../Shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Shader.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Shader.cpp
 
 CMakeFiles/GLFWOpenGL.dir/Shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/Shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/Shader.cpp > CMakeFiles/GLFWOpenGL.dir/Shader.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Shader.cpp > CMakeFiles/GLFWOpenGL.dir/Shader.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/Shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/Shader.cpp -o CMakeFiles/GLFWOpenGL.dir/Shader.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Shader.cpp -o CMakeFiles/GLFWOpenGL.dir/Shader.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/Model.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/Model.cpp.o: ../Model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Model.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Model.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/Model.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GLFWOpenGL.dir/Model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/Model.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Model.cpp
 
 CMakeFiles/GLFWOpenGL.dir/Model.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/Model.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/Model.cpp > CMakeFiles/GLFWOpenGL.dir/Model.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Model.cpp > CMakeFiles/GLFWOpenGL.dir/Model.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/Model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/Model.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/Model.cpp -o CMakeFiles/GLFWOpenGL.dir/Model.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/Model.cpp -o CMakeFiles/GLFWOpenGL.dir/Model.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o: ../libs/imgui/imgui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o: ../libs/imgui/imgui_demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_demo.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_demo.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_demo.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_demo.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_demo.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_demo.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o: ../libs/imgui/imgui_draw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_draw.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_draw.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_draw.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_draw.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_draw.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_draw.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o: ../libs/imgui/imgui_tables.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_tables.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_tables.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_tables.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_tables.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_tables.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_tables.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_tables.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o: ../libs/imgui/imgui_widgets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_widgets.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_widgets.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_widgets.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_widgets.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_widgets.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_widgets.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o: ../libs/imgui/imgui_impl_glfw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_glfw.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.s
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/GLFWOpenGL.dir/flags.make
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o: ../libs/imgui/imgui_impl_opengl3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o -c /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o -c /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp > CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.i
 
 CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /windows/Egerous/EgerCLion/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/libs/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.s
 
 # Object files for target GLFWOpenGL
 GLFWOpenGL_OBJECTS = \
@@ -264,7 +264,7 @@ GLFWOpenGL: CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_glfw.cpp.o
 GLFWOpenGL: CMakeFiles/GLFWOpenGL.dir/libs/imgui/imgui_impl_opengl3.cpp.o
 GLFWOpenGL: CMakeFiles/GLFWOpenGL.dir/build.make
 GLFWOpenGL: CMakeFiles/GLFWOpenGL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable GLFWOpenGL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable GLFWOpenGL"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GLFWOpenGL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -277,6 +277,6 @@ CMakeFiles/GLFWOpenGL.dir/clean:
 .PHONY : CMakeFiles/GLFWOpenGL.dir/clean
 
 CMakeFiles/GLFWOpenGL.dir/depend:
-	cd /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /windows/Egerous/EgerCLion/GLFWOpenGL /windows/Egerous/EgerCLion/GLFWOpenGL /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug /windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug /home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GLFWOpenGL.dir/depend
 

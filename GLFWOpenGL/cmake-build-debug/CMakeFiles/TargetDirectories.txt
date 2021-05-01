@@ -1,3 +1,3 @@
-/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
-/windows/Egerous/EgerCLion/GLFWOpenGL/cmake-build-debug/CMakeFiles/GLFWOpenGL.dir
+/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/eger/Projects/OpenGL-GLFW-Engine-Linux/GLFWOpenGL/cmake-build-debug/CMakeFiles/OpenGL-GLFW-Engine-Linux.dir

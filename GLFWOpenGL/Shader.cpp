@@ -96,11 +96,13 @@ void Shader::setMaterialWithMaps(unsigned int shaderProgram, glm::vec3 ambient, 
     glUniform1f(shininessLoc, shininess);
 }
 
-void Shader::setMaterial(unsigned int shaderProgram, float shininess)
+void Shader::setMaterial(unsigned int shaderProgram, float shininess, bool isNormal)
 {
     unsigned int shininessLoc = glGetUniformLocation(shaderProgram, "material.shininess");
+    unsigned int isNormalLoc = glGetUniformLocation(shaderProgram, "material.isNormal");
 
     glUniform1f(shininessLoc, shininess);
+    glUniform1i(isNormalLoc, isNormal);
 }
 
 void Shader::setDirLightIntensity(unsigned int shaderProgram, glm::vec3 direction, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)

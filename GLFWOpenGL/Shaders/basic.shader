@@ -54,6 +54,7 @@ struct Material {
   sampler2D texture_normal1;
 
   float shininess;
+  bool isNormal;
 };
 
 struct DirLight {
@@ -124,15 +125,25 @@ void main()
   vec3 TangentViewPos  = TBN * viewPos;
   vec3 TangentFragPos  = TBN * FragPos;
 
-  vec3 viewDir = normalize(TangentViewPos - TangentFragPos);
+  vec3 viewDir = vec3(0.0f);
+  vec3 norm = vec3(0.0f);
 
-  vec3 norm = texture(material.texture_normal1, TexCoords).rgb;
-  norm = normalize(norm * 2.0 - 1.0);
+  if(material.isNormal)
+  {
+    viewDir = normalize(TangentViewPos - TangentFragPos);
+    norm = texture(material.texture_normal1, TexCoords).rgb;
+    norm = normalize(norm * 2.0 - 1.0);
+  }
+  else
+  {
+    viewDir = normalize(viewPos - FragPos);
+    norm = normalize(Normal);
+  }
 
   vec3 result = CalcDirLight(dirLight, norm, viewDir);
 
-  if(!gl_FrontFacing)
-  norm = -norm;
+  //if(!gl_FrontFacing)
+    //norm = -norm;
 
   if(numberOfPointLights > 0)
   {
@@ -160,9 +171,16 @@ void main()
 
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
 {
-  vec3 TangentLightPos = TBN * light.direction;
+  vec3 lightDir = vec3(0.0f);
 
-  vec3 lightDir = normalize(TangentLightPos - TangentFragPos);
+  if(material.isNormal)
+  {
+    vec3 TangentLightPos = TBN * light.direction;
+    lightDir = normalize(TangentLightPos - TangentFragPos);
+  }
+  else
+    lightDir = normalize(light.direction - FragPos);
+
   float sDotN = max(dot(lightDir, normal), 0.0f);
 
   float diff = max(dot(normal, lightDir), 0.0);
@@ -182,9 +200,15 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
 
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
 {
+  vec3 lightDir = vec3(0.0f);
   vec3 TangentLightPos = TBN * light.position;
 
-  vec3 lightDir = normalize(TangentLightPos - TangentFragPos);
+  if(material.isNormal)
+  {
+    lightDir = normalize(TangentLightPos - fragPos);
+  }
+  else
+    lightDir = normalize(light.position - fragPos);
 
   float diff = max(dot(normal, lightDir), 0.0);
 
