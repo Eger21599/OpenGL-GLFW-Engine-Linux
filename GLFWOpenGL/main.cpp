@@ -5,7 +5,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include "libs/imgui/imgui.h"
 #include "libs/imgui/imgui_impl_opengl3.h"
@@ -29,7 +28,7 @@ bool isRightButton = false;
 ///////////////////////////// Model Gui ///////////////////////////////////////
 float shininess = 32.0f;
 bool isSpotLight = false;
-bool isPointLight = false;
+bool isPointLight = true;
 struct Transform {
     glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -38,8 +37,10 @@ struct Transform {
 float fogMaxDist = 50.0f;
 float fogMinDist = 10.0f;
 glm::vec3 fogColor = glm::vec3(0.475f, 0.475f, 0.475f);
+float reflectFactor = 1.0f;
 bool isFog = false;
-bool isNormal = false;
+bool isNormal = true;
+bool isSkyBox = true;
 ///////////////////////////////////////////////////////////////////////////////
 
 Transform transform;
@@ -102,9 +103,9 @@ int main()
     glfwSetCursorPosCallback(window, mouse_callback);
     glEnable(GL_DEPTH_TEST);
 
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
-    glFrontFace(GL_CCW);
+    //glEnable(GL_CULL_FACE);
+    //glCullFace(GL_BACK);
+    //glFrontFace(GL_CCW);
 
     if (glewInit() != GLEW_OK)
     {
@@ -116,8 +117,52 @@ int main()
     std::cout << glGetString(GL_VERSION) << std::endl;
 
     glewExperimental = GL_TRUE;
-    stbi_set_flip_vertically_on_load(true);
+    //stbi_set_flip_vertically_on_load(true);
     glGetError();
+
+    float cubeVertices[] = {
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+             0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+    };
 
     float skyboxVertices[] = {
             -1.0f,  1.0f, -1.0f,
@@ -163,12 +208,34 @@ int main()
              1.0f, -1.0f,  1.0f
     };
 
+    unsigned int cubeVAO, cubeVBO;
+    glGenVertexArrays(1, &cubeVAO);
+    glGenBuffers(1, &cubeVBO);
+
+    glBindVertexArray(cubeVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), &cubeVertices, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+
+    Shader::ShaderProgramSource cubeShaderSource = Shader::loadShaderFromFile("../Shaders/cube.shader");
+    unsigned int cubeShader = Shader::CreateShader(cubeShaderSource.VertexSource, cubeShaderSource.FragmentSource);
+    glUseProgram(cubeShader);
+
     unsigned int skyboxVAO, skyboxVBO;
     glGenVertexArrays(1, &skyboxVAO);
     glGenBuffers(1, &skyboxVBO);
+
     glBindVertexArray(skyboxVAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
@@ -184,14 +251,25 @@ int main()
             {
                     "../Textures/SkyBoxes/sea/right.jpg",
                     "../Textures/SkyBoxes/sea/left.jpg",
-                    "../Textures/SkyBoxes/sea/bottom.jpg",
                     "../Textures/SkyBoxes/sea/top.jpg",
+                    "../Textures/SkyBoxes/sea/bottom.jpg",
                     "../Textures/SkyBoxes/sea/front.jpg",
                     "../Textures/SkyBoxes/sea/back.jpg"
             };
-    unsigned int cubemapTexture = loadCubemap(faces);
+    unsigned int skyBoxCubemapTexture = loadCubemap(faces);
 
-    Model backpack("../Models/Backpack/backpack.obj");
+    std::vector<std::string> skyBoxFaces
+            {
+                    "../Textures/SkyBoxes/sea/right.jpg",
+                    "../Textures/SkyBoxes/sea/left.jpg",
+                    "../Textures/SkyBoxes/sea/top.jpg",
+                    "../Textures/SkyBoxes/sea/bottom.jpg",
+                    "../Textures/SkyBoxes/sea/front.jpg",
+                    "../Textures/SkyBoxes/sea/back.jpg"
+            };
+    unsigned int cubeCubemapTexture = loadCubemap(skyBoxFaces);
+
+    Model backpack("../Models/Backpack/backpack.obj", true);
 
     Shader::ShaderProgramSource basicShaderSource = Shader::loadShaderFromFile("../Shaders/basic.shader");
     unsigned int basicShader = Shader::CreateShader(basicShaderSource.VertexSource, basicShaderSource.FragmentSource);
@@ -284,20 +362,41 @@ int main()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         backpack.Draw(basicShader);
 
-        ModelGui();
+        glUseProgram(cubeShader);
 
-        /*glDepthFunc(GL_LEQUAL);
-        glUseProgram(skyboxShader);
-        glm::mat4 skyboxView = glm::mat4(glm::mat3(glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp)));
-        Shader::setMat4(skyboxShader, "view", skyboxView);
-        Shader::setMat4(skyboxShader, "projection", projection);
+        glm::mat4 cubeModel = glm::mat4(1.0f);
+        cubeModel = glm::translate(cubeModel, glm::vec3(2.6f, 0.0f, 0.0f));
 
-        glBindVertexArray(skyboxVAO);
+        Shader::setMat4(cubeShader, "model", cubeModel);
+        Shader::setMat4(cubeShader, "projection", projection);
+        Shader::setMat4(cubeShader, "view", view);
+        Shader::setVec3(cubeShader, "cameraPos", cameraPos);
+        Shader::setFloat(cubeShader, "reflectFactor", reflectFactor);
+
+        glBindVertexArray(cubeVAO);
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skyBoxCubemapTexture);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
-        glDepthFunc(GL_LESS);*/
+        //backpack.Draw(cubeShader);
+
+        if(isSkyBox)
+        {
+            glDepthFunc(GL_LEQUAL);
+            glUseProgram(skyboxShader);
+            glm::mat4 skyboxView = glm::mat4(glm::mat3(glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp)));
+            Shader::setMat4(skyboxShader, "view", skyboxView);
+            Shader::setMat4(skyboxShader, "projection", projection);
+
+            glBindVertexArray(skyboxVAO);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, skyBoxCubemapTexture);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+            glBindVertexArray(0);
+            glDepthFunc(GL_LESS);
+        }
+
+        ModelGui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -421,6 +520,9 @@ void ModelGui()
     ImGui::InputFloat3("Position", &transform.position.x);
     ImGui::InputFloat3("Scale", &transform.scale.x);
 
+    ImGui::Text("Cube");
+    ImGui::SliderFloat("Reflection factor", &reflectFactor, 0.0f, 1.0f);
+
     ImGui::Text("Light settings");
     ImGui::Checkbox("Spot Light", &isSpotLight);
     ImGui::Checkbox("Point Light", &isPointLight);
@@ -432,6 +534,9 @@ void ModelGui()
     ImGui::SliderFloat("Max Dist", &fogMaxDist, 0.0f, 100.0f);
     ImGui::SliderFloat("Min Dist", &fogMinDist, 0.0f, 100.0f);
     ImGui::ColorEdit3("Color", &fogColor.x);
+
+    ImGui::Text("Skybox settings");
+    ImGui::Checkbox("Skybox", &isSkyBox);
 
     ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000 / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
     ImGui::End();

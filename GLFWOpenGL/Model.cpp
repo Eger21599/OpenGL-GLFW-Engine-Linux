@@ -47,6 +47,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
     std::vector<Texture> textures;
+    if(isFlip) stbi_set_flip_vertically_on_load(true);
 
     for(unsigned int i = 0; i < mesh->mNumVertices; i++)
     {

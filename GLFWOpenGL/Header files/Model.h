@@ -28,8 +28,9 @@ public:
     std::vector<Mesh> meshes;
     std::string directory;
     bool gammaCorrection;
+    bool isFlip = false;
 
-    Model(const std::string &path, bool gamma = false) : gammaCorrection(gamma)
+    Model(const std::string &path, bool isNeedToFlip, bool gamma = false) : gammaCorrection(gamma), isFlip(isNeedToFlip)
     {
         loadModel(path);
     }

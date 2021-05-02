@@ -142,8 +142,8 @@ void main()
 
   vec3 result = CalcDirLight(dirLight, norm, viewDir);
 
-  //if(!gl_FrontFacing)
-    //norm = -norm;
+  if(!gl_FrontFacing)
+    norm = -norm;
 
   if(numberOfPointLights > 0)
   {
@@ -154,7 +154,7 @@ void main()
   if(numberOfSpotLights > 0)
   {
     for (int j = 0; j < numberOfSpotLights; j++)
-    result += CalcSpotLight(spotLights[j], norm, FragPos, viewDir);
+    result += CalcSpotLight(spotLights[j], /*norm*/normalize(Normal), FragPos, viewDir);
   }
 
   if(fog.isFog)
@@ -176,7 +176,7 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
   if(material.isNormal)
   {
     vec3 TangentLightPos = TBN * light.direction;
-    lightDir = normalize(TangentLightPos - TangentFragPos);
+    lightDir = normalize(TangentLightPos - FragPos);
   }
   else
     lightDir = normalize(light.direction - FragPos);
