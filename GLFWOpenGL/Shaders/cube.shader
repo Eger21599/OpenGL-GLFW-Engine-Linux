@@ -30,12 +30,14 @@ uniform vec3 cameraPos;
 uniform samplerCube skybox;
 
 uniform float reflectFactor;
+uniform float ratio;
 
 void main()
 {
+    float eta = 1.0f / ratio;
     vec3 I = normalize(Position - cameraPos);
-    vec3 R = reflect(I, normalize(Normal));
-    //FragColor = vec4(texture(skybox, R).rgb, 1.0);
-    vec4 reflectedTexture = texture(skybox, R);
+    //vec3 R = reflect(I, normalize(Normal));
+    vec3 R = refract(I, normalize(Normal), eta);
+    vec4 reflectedTexture = texture(skybox, vec3(-1.0f, 1.0f, -1.0f) * R);
     FragColor = mix(vec4(1.0f, 1.0f, 1.0f, 1.0f), reflectedTexture, reflectFactor);
 }

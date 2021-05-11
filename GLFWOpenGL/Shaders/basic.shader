@@ -167,6 +167,7 @@ void main()
   }
 
   FragColor = vec4(result, 1.0);
+  //FragColor = texture(material.texture_normal1, TexCoords) * vec4(1.0f);
 }
 
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)

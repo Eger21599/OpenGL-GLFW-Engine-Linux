@@ -47,7 +47,6 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
     std::vector<Texture> textures;
-    if(isFlip) stbi_set_flip_vertically_on_load(true);
 
     for(unsigned int i = 0; i < mesh->mNumVertices; i++)
     {
@@ -102,7 +101,10 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
     textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 
-    std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+    //std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+    //textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+
+    std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_DISPLACEMENT, "texture_normal");
     textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
 
     std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
